@@ -3,10 +3,10 @@ import { ThemeSwitcher } from "./theme-switcher";
 
 const navItems = {
   "/": {
-    name: "home",
+    name: "Home",
   },
   "/blog": {
-    name: "blog",
+    name: "Blog",
   },
 };
 
