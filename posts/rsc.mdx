@@ -31,8 +31,6 @@ Next의 SSR의 경우 First Paint가 빠릅니다. 그 이유는 HTML을 먼저 
 > 💡 **Hydration**
 > 식물에 물주듯이 HTML에 JS를 부여하여 생명을 부여한다는 의미입니다. 해당 과정이 진행되며 Page Interaction이 가능해집니다. 만약 hydration이 늦어질 경우 문제가 생길 수 있습니다.(물론 요즘 웹 성능으로는 그런일이 드물긴하지만,,,)
 
-<br>
-
 First Paint를 HTML만으로 이루어져 빠르기 때문에 CSR보다 좋아보입니다. 하지만 아직 문제가 있습니다. query는 여전히 늦습니다. 데이터 쿼리가 조금 늦어지는게 뭐 어떠냐는 생각이 들 수도 있습니다. 하지만 아래의 그림을 보면 유저에게 API데이터를 곧바로 보여줘야하는 경우에 문제가 생깁니다.
 
 ![](https://velog.velcdn.com/images/jaehwan/post/7ff08ce9-e85b-4f37-9ec1-44979d9496af/image.png)
@@ -60,8 +58,6 @@ RSC같은 경우 기존의 SSR의 문제를 해결해버립니다. 바로 query�
 
 ![](https://velog.velcdn.com/images/jaehwan/post/fd8d7334-3029-41fd-b44c-92cd43a24882/image.png)
 
-<br>
-
 ## query와 Render가 동시에 가능한 이유
 
 **RSC : ReactServerComponent**
@@ -79,8 +75,6 @@ ServerSide Component 개념을 가능하게 하는 원리는 다음과 같습니
 즉 컴포넌트를 서버에서 완성하기 때문에 클라이언트에서 api 즉 query를 할 필요가 없고 render도 할 필요가 없어집니다.
 
 이것이 가능하게 된 이유는 React Server Component에 있습니다.
-
-<br>
 
 ## **리액트 컴포넌트를 만드는 방법**
 
@@ -124,8 +118,6 @@ type: async () => "";
 
 이것은 서버 컴포넌트라는 것을 공표하는 행동입니다. 그럼 공표하게 된다면 어떤 부분의 변화가 생길까요?
 
-<br>
-
 ### Client Component의 동작
 
 async를 사용하지 않는 기존의 방식의 컴포넌트를 Client Component라고 합니다.
@@ -156,8 +148,6 @@ client.main.js의 경우 말그대로 클라이언트 컴포넌트입니다.
 ![](https://velog.velcdn.com/images/jaehwan/post/e0d655da-9ceb-459d-929e-6c68aafb5a6d/image.png)
 
 > 💡 Client Component를 사용하기 위해서는 'use client’를 선언해야합니다.
-
-<br>
 
 ### Server Component의 동작
 
@@ -242,8 +232,6 @@ const html = renderToString(jsx);
 ```
 
 1. 클라이언트에게 송출합니다.
-
-<br>
 
 **Client**
 
@@ -335,8 +323,6 @@ export default function App({ selectedId, isEditing, searchText }) {
 
 이 의문의 해결해준 설명이 바로 File System과 Module Map입니다.
 
-<br>
-
 ### NextJS Module Map
 
 모듈맵을 생성하는 과정은 다음과 같습니다.
@@ -361,8 +347,6 @@ NextJS의 경우 가장 처음 모듈맵을 먼저 만들어서 어떤 것이 RS
 
 Client의 경우 모듈맵을 받고 해당 맵을 보고 컴포넌트만 띄워주는 것입니다.
 
-<br>
-
 ### RSC를 꼭 써야할까?
 
 개인적인 견해로는 사용할 수 밖에 없다. 라는 생각입니다.
@@ -372,5 +356,3 @@ RSC를 사용할 경우 렌더링의 장점도 있겠지만 더욱 강력한 장
 즉 컴포넌트를 client가 가지지 않아도 되고 다른 의미로는 컴포넌트에서 사용하는 라이브러리, 프레임워크를 다운받지 않아도 된다는 것을 의미합니다.
 
 결론은 유저가 다운받아야하는 웹의 총량이 줄어드는 것입니다.
-
-<br>
